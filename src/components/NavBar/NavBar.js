@@ -24,7 +24,6 @@ const NavBar = () => {
 				<li>
 					<a href="#">
 						<CartWidget quantity="4"/>
-						<span>Shopping cart</span>
 					</a>
 				</li>
 			</ul>
