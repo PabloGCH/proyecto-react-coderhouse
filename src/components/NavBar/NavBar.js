@@ -2,7 +2,7 @@ import "./NavBar.css";
 
 import CartWidget from "./CartWidget/CartWidget";
 
-const NavBar = () => {
+const NavBar = ({cartCount}) => {
 	return (
 		<header>
 			<nav className="NavBar">
@@ -24,7 +24,7 @@ const NavBar = () => {
 					</li>
 					<li>
 						<a href="#">
-							<CartWidget quantity="4"/>
+							<CartWidget cartCount={cartCount}/>
 						</a>
 					</li>
 				</ul>
