@@ -1,0 +1,11 @@
+.Item {
+	overflow: hidden;
+	cursor: pointer;
+	margin: 10px;
+	border-radius: 8px;
+	width: 300px;
+	box-shadow: 0px 0px 5px;
+}
+.Item img {
+	width: 100%;
+}
