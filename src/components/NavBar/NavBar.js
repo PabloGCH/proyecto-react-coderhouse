@@ -1,26 +1,24 @@
 import "./NavBar.css";
 
 import CartWidget from "./CartWidget/CartWidget";
+import {Link} from "react-router-dom";
 
 const NavBar = ({cartCount}) => {
 	return (
 		<header>
 			<nav className="NavBar">
 				<div className="Brand">
-					<span>Dungeon Board</span>
+					<Link className="BrandName" to={"/"}>Dungeon Board</Link>
 				</div>
 				<ul className="NavList">
 					<li>
-						<a href="#">Home</a>
+						<Link to={"/"}>Home</Link>
 					</li>
 					<li>
-						<a href="#">Board Games</a>
+						<Link to={"category/dice"}>Dice</Link>
 					</li>
 					<li>
-						<a href="#">Dice</a>
-					</li>
-					<li>
-						<a href="#">Miniatures</a>
+						<Link to={"category/miniatures"}>Miniatures</Link>
 					</li>
 					<li>
 						<a href="#">

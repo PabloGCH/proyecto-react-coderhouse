@@ -4,6 +4,10 @@
 	font-weight: bold;
 	color: white;
 }
+.Brand .BrandName {
+	text-decoration: none;
+	color: white;
+}
 
 .NavBar {
 	position: fixed;
