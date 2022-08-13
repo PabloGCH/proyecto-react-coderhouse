@@ -12,7 +12,7 @@ const products = [
 	{
 		id: "2",
 		title: "20 sided dice",
-		decription: "A dice of 20 sides for ttrpgs",
+		description: "A dice of 20 sides for ttrpgs",
 		price: "50",
 		stock: "15",
 		category: "dice",
