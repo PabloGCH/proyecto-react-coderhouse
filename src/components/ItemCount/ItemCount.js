@@ -3,6 +3,8 @@ import "./ItemCount.css";
 
 const ItemCount = ({stock, initial, onAdd}) => {
 	const [count, setcount] = useState(parseInt(initial));
+	
+
 	const increment = () => {
 		if(count < stock) {
 			setcount(count + 1);
@@ -14,11 +16,10 @@ const ItemCount = ({stock, initial, onAdd}) => {
 		}
 	}
 	const add = () => {
-		if(stock > 0) {
+		if(count > 0) {
 			onAdd(count);
 		}
 	}
-
 	return (
 		<div className="ItemCount">
 			<div className="controler">
