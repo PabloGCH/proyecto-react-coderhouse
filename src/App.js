@@ -1,20 +1,17 @@
 import './App.css';
-import { useState } from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { CartContextProvider } from "./context/CartContext.js"
+
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.js'
 
 function App() {
-	const [cartCount, setCartCount] = useState(0);
-	const increaseCartCount = (amount) => {
-		setCartCount(cartCount + amount);
-	}
-
 	return (
 		<div className="App">
-			<BrowserRouter>
-				<NavBar cartCount={cartCount}/>
+			<CartContextProvider>
+				<BrowserRouter>
+					<NavBar/>
 					<Routes>
 						<Route path='/' element={
 							<ItemListContainer/>
@@ -23,10 +20,11 @@ function App() {
 							<ItemListContainer/>
 						}/>
 						<Route path='/item/:id' element={
-							<ItemDetailContainer onAdd={increaseCartCount}/>
+							<ItemDetailContainer/>
 						}/>
 					</Routes>
-			</BrowserRouter>
+				</BrowserRouter>
+			</CartContextProvider>
 		</div>
 	);
 }

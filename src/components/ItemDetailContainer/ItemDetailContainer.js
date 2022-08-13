@@ -4,7 +4,7 @@ import ItemDetail from "./ItemDetail/ItemDetail.js";
 import "./ItemDetailContainer.css";
 import {useParams} from "react-router-dom";
 
-const ItemDetailContainer = ({onAdd}) => {
+const ItemDetailContainer = () => {
 	const [product, setProduct] = useState({});
 	const id = useParams().id;
 	useEffect(() => {
@@ -15,7 +15,7 @@ const ItemDetailContainer = ({onAdd}) => {
 	})
 	return (
 		<div className="ItemDetailContainer">
-			<ItemDetail product={product} onAdd={onAdd}></ItemDetail>
+			<ItemDetail product={product}></ItemDetail>
 		</div>
 	);
 }

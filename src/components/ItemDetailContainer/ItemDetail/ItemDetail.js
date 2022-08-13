@@ -1,12 +1,21 @@
 import "./ItemDetail.css";
-import ItemCount from "../../ItemCount/ItemCount.js";
-import {useState} from "react"
+import { useState } from "react"
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import ItemCount from "../../ItemCount/ItemCount.js";
+import CartContext from "../../../context/CartContext.js"
 
 const ItemDetail = ({product}) => {
-	const [quantity, setQuantity] = useState(0);
+	const {addItem} = useContext(CartContext);
+	const [purchaseState, setPurchaseState] = useState("pending");
+
 	const handleOnAdd = (num) => {
-		setQuantity(num);
+		setPurchaseState("finished")
+		const newProduct = {
+			...product,
+			quantity: num
+		}
+		addItem(newProduct);
 	}
 
 	return (
@@ -17,7 +26,7 @@ const ItemDetail = ({product}) => {
 				<p className="description">{product.description}</p>
 				<p className="price">$ {product.price}</p>
 				{
-					quantity === 0 ? (
+					purchaseState === "pending" ? (
 						<ItemCount onAdd={handleOnAdd} stock={product.stock} initial={0}/>
 					) : (
 						<Link className="linkToCart" to={"/cart"}>Finish purchase</Link>

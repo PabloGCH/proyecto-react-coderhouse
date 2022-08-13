@@ -3,7 +3,8 @@ import "./NavBar.css";
 import CartWidget from "./CartWidget/CartWidget";
 import {Link} from "react-router-dom";
 
-const NavBar = ({cartCount}) => {
+const NavBar = () => {
+
 	return (
 		<header>
 			<nav className="NavBar">
@@ -22,7 +23,7 @@ const NavBar = ({cartCount}) => {
 					</li>
 					<li>
 						<a href="#">
-							<CartWidget cartCount={cartCount}/>
+							<CartWidget/>
 						</a>
 					</li>
 				</ul>
