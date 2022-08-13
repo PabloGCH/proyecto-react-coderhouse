@@ -18,3 +18,12 @@
 	font-size: 24px;
 	font-weight: bold;
 }
+.ItemDetail .linkToCart {
+	color:  black;
+	text-decoration: none;
+	box-shadow: 0px 0px 7px;
+	padding: 10px;
+	border-radius: 8px;
+	display: block;
+
+}
