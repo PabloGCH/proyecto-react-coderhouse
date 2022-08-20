@@ -6,8 +6,13 @@ import ItemCount from "../../ItemCount/ItemCount.js";
 import CartContext from "../../../context/CartContext.js"
 
 const ItemDetail = ({product}) => {
-	const {addItem} = useContext(CartContext);
+	const {addItem, isInCart, getProductQuantity} = useContext(CartContext);
 	const [purchaseState, setPurchaseState] = useState("pending");
+	let quantity = 0;
+	if(isInCart) {
+		quantity = getProductQuantity(product.id);
+	}
+
 
 	const handleOnAdd = (num) => {
 		setPurchaseState("finished")
@@ -27,7 +32,7 @@ const ItemDetail = ({product}) => {
 				<p className="price">$ {product.price}</p>
 				{
 					purchaseState === "pending" ? (
-						<ItemCount onAdd={handleOnAdd} stock={product.stock} initial={0}/>
+						<ItemCount onAdd={handleOnAdd} stock={product.stock} initial={quantity}/>
 					) : (
 						<Link className="linkToCart" to={"/cart"}>Finish purchase</Link>
 					)

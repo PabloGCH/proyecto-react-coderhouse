@@ -22,6 +22,9 @@ export const CartContextProvider = ({children}) => {
 		})
 		return acc;
 	}
+	const getProductQuantity = (id) => {
+		return cart.find((prod) => prod.id == id)?.quantity;
+	} 
 	const isInCart = (itemId) => {
 		let index = cart.findIndex((el) => {
 			return el.id == itemId;
@@ -36,7 +39,7 @@ export const CartContextProvider = ({children}) => {
 			setCart([...cart, newProduct]);
 		} else {
 			let newCart = cart;
-			newCart[index].quantity += newProduct.quantity;
+			newCart[index].quantity = newProduct.quantity;
 			setCart(newCart);
 		}
 		setStateChange(true);
@@ -64,7 +67,7 @@ export const CartContextProvider = ({children}) => {
 		return acc;
 	}
 	return (
-		<CartContext.Provider value={{getTotalPrice, clear, getProducts, isInCart, addItem, getQuantity, removeItem}}>
+		<CartContext.Provider value={{getTotalPrice, clear, getProductQuantity, getProducts, isInCart, addItem, getQuantity, removeItem}}>
 			{children}
 		</CartContext.Provider>
 	)
