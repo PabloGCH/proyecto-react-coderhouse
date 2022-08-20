@@ -24,9 +24,11 @@ const NavBar = () => {
 						<Link to={"category/miniatures"}>Miniatures</Link>
 					</li>
 					<li>
-						<Link to={"cart"}>
-							<CartWidget quantity={quantity}/>
-						</Link>
+						{quantity > 0 &&
+							<Link to={"cart"}>
+								<CartWidget quantity={quantity}/>
+							</Link>
+						}
 					</li>
 				</ul>
 			</nav>
