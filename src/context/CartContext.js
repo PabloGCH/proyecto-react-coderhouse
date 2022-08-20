@@ -4,9 +4,16 @@ export const CartContext = createContext()
 
 export const CartContextProvider = ({children}) => {
 	const [cart, setCart] = useState([]);
+	const [stateChange, setStateChange] = useState(false);
+	useEffect(()=>{
+		setStateChange(false);
+	},[stateChange])
 
 	const clear = () => {
 		setCart([]);
+	}
+	const getProducts = () => {
+		return cart;
 	}
 	const getQuantity = () => {
 		let acc = 0;
@@ -28,21 +35,11 @@ export const CartContextProvider = ({children}) => {
 		if(index == -1) {
 			setCart([...cart, newProduct]);
 		} else {
-			/* Tuve que remplazar este codigo porque no me actualizaba el CartWidget
 			let newCart = cart;
 			newCart[index].quantity += newProduct.quantity;
 			setCart(newCart);
-			*/
-			setCart((currentArray) => {
-				return [
-					...currentArray.slice(0, index),
-					{
-					...currentArray[index], quantity: currentArray[index].quantity + newProduct.quantity
-					},
-					...currentArray.slice(index + 1)
-				]
-			})
 		}
+		setStateChange(true);
 	}
 	const removeItem = (itemId) => {
 		let newCart = cart;
@@ -50,12 +47,24 @@ export const CartContextProvider = ({children}) => {
 			return el.id == itemId;
 		});
 		if(index != -1 ) {
-			newCart.splice(index, 1);
-			setCart(newCart);
+			if(newCart[index].quantity > 1) {
+				newCart[index].quantity -= 1;
+				setCart(newCart);
+
+			} else {
+				newCart.splice(index, 1);
+				setCart(newCart);
+			}
 		}
+		setStateChange(true);
+	}
+	const getTotalPrice = () => {
+		let acc = 0;
+		cart.forEach(prod => acc += parseInt(prod.price) * parseInt(prod.quantity))
+		return acc;
 	}
 	return (
-		<CartContext.Provider value={{cart, isInCart, addItem, getQuantity, removeItem}}>
+		<CartContext.Provider value={{getTotalPrice, clear, getProducts, isInCart, addItem, getQuantity, removeItem}}>
 			{children}
 		</CartContext.Provider>
 	)
