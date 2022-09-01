@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
 			}
 			setProduct(product);
 		});
-	})
+	}, [])
 	return (
 		<div className="ItemDetailContainer">
 			<ItemDetail product={product}></ItemDetail>
