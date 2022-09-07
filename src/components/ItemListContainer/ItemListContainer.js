@@ -22,7 +22,7 @@ const ItemListContainer = () => {
 					}
 				});
 				setProducts(productsList);
-			})
+			});
 		} else {
 			getProducts()
 			.then((response) => {
