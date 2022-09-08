@@ -35,7 +35,7 @@ const ItemDetail = ({product}) => {
 						<ItemCount onAdd={handleOnAdd} stock={product.stock} initial={quantity}/>
 					) : (
 						<>
-						<Link className="link" to={"/cart"}>Finish purchase</Link>
+						<Link className="link" to={"/cart"}>Go to cart</Link>
 
 						<Link className="link" to={"/"}>Keep buying</Link>
 						</>
