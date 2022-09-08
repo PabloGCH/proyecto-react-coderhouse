@@ -7,12 +7,12 @@ import { useState } from "react";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDqou4RPHNXsIKB7PlYjyYRLiSruwkev9k",
-  authDomain: "dungeon-board.firebaseapp.com",
-  projectId: "dungeon-board",
-  storageBucket: "dungeon-board.appspot.com",
-  messagingSenderId: "537206271706",
-  appId: "1:537206271706:web:e68fe6fbfea7d0ecbf7fe3"
+	apiKey: process.env.REACT_APP_apiKey,
+	authDomain: process.env.REACT_APP_authDomain,
+	projectId: process.env.REACT_APP_projectId,
+	storageBucket: process.env.REACT_APP_storageBucket,
+	messagingSenderId: process.env.REACT_APP_messagingSenderId,
+	appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
@@ -24,8 +24,6 @@ export const fsCreateOrder = async (object) => {
 	const ids = object.items.map(prod => prod.id);
 	const productsRef = collection(db, "Products");
 	const orderRef = collection(db, "Orders");
-	
-	//addDoc(orderRef, object)
 	
 	const snapshot = await getDocs(query(productsRef, where(documentId(), "in", ids)));
 	const {docs} = snapshot;
