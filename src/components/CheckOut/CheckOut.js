@@ -39,7 +39,7 @@ const CheckOut = () => {
 
 		<div className="CheckOut">
 			{
-				loading && <p>Loading...</p>
+				loading && <p className="loadingMessage">Loading...</p>
 			}
 			{buyerData == "" ? 
 				(
