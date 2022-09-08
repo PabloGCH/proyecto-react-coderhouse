@@ -34,7 +34,11 @@ const ItemDetail = ({product}) => {
 					purchaseState === "pending" ? (
 						<ItemCount onAdd={handleOnAdd} stock={product.stock} initial={quantity}/>
 					) : (
-						<Link className="linkToCart" to={"/cart"}>Finish purchase</Link>
+						<>
+						<Link className="link" to={"/cart"}>Finish purchase</Link>
+
+						<Link className="link" to={"/"}>Keep buying</Link>
+						</>
 					)
 				}
 			</div>
