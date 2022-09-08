@@ -33,12 +33,13 @@ const Cart = () => {
 			{quantity != 0 ?
 				<>
 				<h2>Products: {quantity}</h2>
-				<table>
+				<table className="cartTable">
 					<thead>
 						<tr>
 							<th>Name</th>
 							<th>Price</th>
 							<th>Quantity</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,6 +47,8 @@ const Cart = () => {
 						<tr>
 							<th>Total Price</th>
 							<td>{getTotalPrice()}</td>
+							<td></td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>

@@ -1,0 +1,8 @@
+.cartTable {
+	border-collapse: collapse;
+}
+
+.cartTable td, .cartTable th {
+	border: 1px solid lightgray;
+	padding: 10px;
+}
