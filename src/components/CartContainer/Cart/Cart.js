@@ -52,11 +52,15 @@ const Cart = () => {
 						</tr>
 					</tbody>
 				</table>
+				<Link className="cartLink" to={"/purchase"}>Finish purchase</Link>
+				<Link className="cartLink" to={"/"}>Keep buying</Link>
 				</>
 				:
 				<>
 				<h2>There are no products in the cart</h2>
-				<Link to={"/"}>Return to home</Link>
+				<Link className="cartLink" to={"/"}>Return to home</Link>
+
+
 				</>
 			}
 				
