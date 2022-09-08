@@ -1,0 +1,45 @@
+.purchaseForm {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	align-items: flex-start;
+}
+
+.purchaseForm label {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.purchaseForm input {
+	width: 100%;
+	padding: 10px;
+	font-size: 18px;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+}
+
+.purchaseForm input:focus {
+	outline: none;
+	box-shadow: 0px 0px 10px 3px lightgray;
+}
+
+.purchaseForm .error {
+	color: red;
+}
+
+.purchaseForm button, .purchaseForm .error {
+	align-self: center;
+}
+
+.purchaseForm button {
+	border: none;
+	cursor: pointer;
+	margin-top: 15px;
+	color:  black;
+	text-decoration: none;
+	box-shadow: 0px 0px 7px;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+

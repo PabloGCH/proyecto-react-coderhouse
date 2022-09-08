@@ -12,14 +12,6 @@ const CheckOut = () => {
 	const [operationId, setOperationId] = useState("");
 	const [buyerData, setBuyerData] = useState("");
 	const [loading, setLoading] = useState(false);
-/*
- *
-firstName: "pablo",
-lastName: "choconi",
-phone: "1234567",
-address: "direccion 2389"
-
- * */
 	const createOrder = async () => {
 		const objOrder = {
 			buyer: {
@@ -50,9 +42,19 @@ address: "direccion 2389"
 				loading && <p>Loading...</p>
 			}
 			{buyerData == "" ? 
-				(<PurchaseForm setDataFunc={setBuyerData}/>)
+				(
+					<>
+					<h2>Please fill the the form to complete your purchase</h2>
+					<PurchaseForm setDataFunc={setBuyerData}/>
+					</>
+				)
 				:
-				(quantity != 0 &&<button onClick={() => createOrder()}>Generate order</button>)
+				(quantity != 0 &&
+					<>
+					<h2>Only one more click!</h2>
+					<button className="genBtn" onClick={() => createOrder()}>Generate order</button>
+					</>
+				)
 			}
 			{
 				operationId != "" &&

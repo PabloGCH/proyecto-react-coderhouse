@@ -1,3 +1,4 @@
+import "./PurchaseForm.css"
 import { useEffect, useState } from "react";
 
 
@@ -33,7 +34,7 @@ const PurchaseForm = ({setDataFunc}) => {
 	};
 
 	return (
-		<form>
+		<form className="purchaseForm">
 			<label for="name">Name:</label>
 			<input onChange={(e) => setName(e.target.value)} id="name" placeholder="name"></input>
 			<label for="lastname">Last name:</label>
@@ -42,7 +43,7 @@ const PurchaseForm = ({setDataFunc}) => {
 			<input onChange={(e) => setPhone(e.target.value)} id="phone" placeholder="1231414"></input>
 			<label for="address">Address:</label>
 			<input onChange={(e) => setAdress(e.target.value)} id="address" placeholder="Street 2"></input>
-			{failedSubmit && <p>*All fields are required</p>}
+			{failedSubmit && <p className="error">*All fields are required</p>}
 			<button type="button" onClick={handleSubmit}>Submit</button>
 		</form>
 	)

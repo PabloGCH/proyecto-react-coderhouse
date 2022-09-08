@@ -19,6 +19,7 @@
 	font-weight: bold;
 }
 .ItemDetail .link {
+	border: none;
 	margin-top: 15px;
 	color:  black;
 	text-decoration: none;
